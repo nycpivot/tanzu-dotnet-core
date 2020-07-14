@@ -1,6 +1,6 @@
 ﻿# Start with the ASP.NET core runtime image. This bundles all the dependencies
 # that will allow us to bundle our code
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
@@ -13,7 +13,7 @@ WORKDIR /app/tanzu-dotnet-core-web-mvc
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
 COPY --from=build /app/tanzu-dotnet-core-web-mvc/out ./
 
 # As we're running a web-server
