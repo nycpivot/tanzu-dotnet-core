@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanzu.Dotnet.Core.Services.Products", "Tanzu.Dotnet.Core.Services.Products\Tanzu.Dotnet.Core.Services.Products.csproj", "{41F2DD9D-4C1F-42E4-8265-AAC366323E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanzu.Dotnet.Core.Services.Products", "Tanzu.Dotnet.Core.Services.Products\Tanzu.Dotnet.Core.Services.Products.csproj", "{41F2DD9D-4C1F-42E4-8265-AAC366323E6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanzu.Dotnet.Core.Web.Mvc", "Tanzu.Dotnet.Core.Web.Mvc\Tanzu.Dotnet.Core.Web.Mvc.csproj", "{593FC84C-446E-4CDC-BD95-DCCBC54B657A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanzu.Dotnet.Core.Web.Mvc", "Tanzu.Dotnet.Core.Web.Mvc\Tanzu.Dotnet.Core.Web.Mvc.csproj", "{593FC84C-446E-4CDC-BD95-DCCBC54B657A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanzu.Dotnet.Core.Web.Angular", "Tanzu.Dotnet.Core.Web.Angular\Tanzu.Dotnet.Core.Web.Angular.csproj", "{AE85D344-189F-4762-B71A-1FDE1CF82B20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanzu.Dotnet.Core.Web.Angular", "Tanzu.Dotnet.Core.Web.Angular\Tanzu.Dotnet.Core.Web.Angular.csproj", "{AE85D344-189F-4762-B71A-1FDE1CF82B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanzu.Dotnet.Core.Services.Customers", "Tanzu.Dotnet.Core.Services.Customers\Tanzu.Dotnet.Core.Services.Customers.csproj", "{BC56CF71-54DD-4412-A751-E0E456A6E201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tanzu.Dotnet.Core.Services.Customers", "Tanzu.Dotnet.Core.Services.Customers\Tanzu.Dotnet.Core.Services.Customers.csproj", "{BC56CF71-54DD-4412-A751-E0E456A6E201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanzu.Dotnet.Framework.Web.Mvc", "Tanzu.Dotnet.Framework.Web.Mvc\Tanzu.Dotnet.Framework.Web.Mvc.csproj", "{872EDA42-A016-4C14-9F55-DCE80464A8A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BC56CF71-54DD-4412-A751-E0E456A6E201}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC56CF71-54DD-4412-A751-E0E456A6E201}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC56CF71-54DD-4412-A751-E0E456A6E201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872EDA42-A016-4C14-9F55-DCE80464A8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872EDA42-A016-4C14-9F55-DCE80464A8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872EDA42-A016-4C14-9F55-DCE80464A8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872EDA42-A016-4C14-9F55-DCE80464A8A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
