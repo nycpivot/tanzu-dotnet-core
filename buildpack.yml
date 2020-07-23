@@ -1,2 +1,2 @@
-dotnet-build:                                                                                                                                                 │·············
+dotnet-build:
   project-path: "src/Tanzu.Dotnet.Core.Web.Mvc"
