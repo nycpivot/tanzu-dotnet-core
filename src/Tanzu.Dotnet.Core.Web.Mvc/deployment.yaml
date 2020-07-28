@@ -16,7 +16,7 @@ spec:
 		spec:
 			containers:
 			-	name: tanzu-dotnet-core-web-mvc
-				image: tanzuregistry.azurecr.io/tanzu-dotnet-core-web-mvc
+				image: pivotregistry.azurecr.io/tanzu-dotnet-core-web-mvc
 				ports:
 					containerPort: 80
 ---
