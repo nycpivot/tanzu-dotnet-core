@@ -10,10 +10,10 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '26d49d2a-dbd7-46ce-8922-61b2030c07cd'
-  imageRepository: 'nycpivottanzudotnetcore'
-  containerRegistry: 'pivotregistry.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/src/Tanzu.Dotnet.Core.Web.Mvc/Dockerfile'
+  #dockerRegistryServiceConnection: '26d49d2a-dbd7-46ce-8922-61b2030c07cd'
+  #imageRepository: 'nycpivottanzudotnetcore'
+  #containerRegistry: 'pivotregistry.azurecr.io'
+  #dockerfilePath: '$(Build.SourcesDirectory)/src/Tanzu.Dotnet.Core.Web.Mvc/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
@@ -27,6 +27,7 @@ stages:
     displayName: Build
     pool:
       vmImage: $(vmImageName)
+    container: nycpivot/tbs-tools
     steps:
     - task: CmdLine@2
       inputs:
