@@ -32,5 +32,4 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          echo Write your commands here
-          echo Hello world
+          kp image list
