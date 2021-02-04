@@ -34,14 +34,11 @@ stages:
         script: |
           create-kubeconfig.sh
           kp image status tanzu-dotnet-core-web-mvc > /dev/null 2>&1 || image=0
-
-          echo $(Build.SourcesDirectory)
-          git
-          
+         
           if [[ $image != 0 ]]; then
-            kp image patch tanzu-dotnet-core-web-mvc --git $(Build.SourcesDirectory)/src/Tanzu.Dotnet.Core.Web.Mvc --git-revision $(tag) -w
+            kp image patch tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core --git-revision $(tag) -w
           else
-            kp image create tanzu-dotnet-core-web-mvc --tag registry.gitlab.com/gitlab-com/alliances/vmware/sandbox/vmworld-2020-demo/spring-music/dotnet-core --git $(Build.SourcesDirectory) --git-revision $(tag) -w
+            kp image create tanzu-dotnet-core-web-mvc --tag registry.gitlab.com/gitlab-com/alliances/vmware/sandbox/vmworld-2020-demo/spring-music/dotnet-core --git https://github.com/nycpivot/tanzu-dotnet-core --git-revision $(tag) -w
           fi
 
       env:
