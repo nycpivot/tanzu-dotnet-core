@@ -27,7 +27,7 @@ stages:
     displayName: Build
     pool:
       vmImage: $(vmImageName)
-    container: nycpivot/tbs-tools
+    container: nycpivot/tbs-tools:latest
     steps:
     - task: CmdLine@2
       inputs:
