@@ -34,6 +34,9 @@ stages:
         script: |
           create-kubeconfig.sh
           kp image status tanzu-dotnet-core-web-mvc > /dev/null 2>&1 || image=0
+
+          echo $(Build.SourceDirectory)
+          git
           
           if [[ $image != 0 ]]; then
             kp image patch tanzu-dotnet-core-web-mvc --git $(Build.SourcesDirectory) --git-revision $(tag) -w
