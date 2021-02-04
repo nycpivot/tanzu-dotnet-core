@@ -32,6 +32,7 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
+          create-kubeconfig.sh
           kp image list
       env:
         TBS_CLUSTER_SERVER_ADDRESS: https://tanzu-build-service-apiserver-112658748.us-east-1.elb.amazonaws.com:6443
