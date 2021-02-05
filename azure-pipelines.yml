@@ -38,7 +38,7 @@ stages:
           if [[ $image != 0 ]]; then
             kp image patch tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git -w
           else
-            kp image create tanzu-dotnet-core-web-mvc --tag registry.gitlab.com/gitlab-com/alliances/vmware/sandbox/vmworld-2020-demo/spring-music/tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git -w
+            kp image create tanzu-dotnet-core-web-mvc --tag demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git -w
           fi
 
       env:
