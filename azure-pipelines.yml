@@ -32,19 +32,17 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          secretName=tanzu-harbor-secret
-          export REGISTRY_PASSWORD=$(HARBOR_PASS)
+          create-kubeconfig.sh
+
+          secretName=harbor-secret
+          export REGISTRY_PASSWORD=${HARBOR_PASS}
           
-          kp secret delete tanzu-harbor-secret || true
-          kp secret create tanzu-harbor-secret --registry $(HARBOR_SERVER) --registry-user $(HARBOR_USER)
+          kp secret delete harbor-secret || true
+          kp secret create harbor-secret --registry ${HARBOR_SERVER} --registry-user ${HARBOR_USER}
 
     - task: CmdLine@2
       inputs:
         script: |
-          create-kubeconfig.sh
-
-          kp secret create harbor-registry-secret --registry $harbor_server --registry-user $harbor_username
-          
           kp image status tanzu-dotnet-core-web-mvc > /dev/null 2>&1 || image=0
          
           if [[ $image != 0 ]]; then
