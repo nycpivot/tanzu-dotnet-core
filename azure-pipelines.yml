@@ -39,11 +39,6 @@ stages:
           
           kp secret delete harbor-secret || true
           kp secret create harbor-secret --registry ${HARBOR_SERVER} --registry-user ${HARBOR_USER}
-
-    - task: CmdLine@2
-      inputs:
-        script: |
-          create-kubeconfig.sh
                     
           kp image status tanzu-dotnet-core-web-mvc > /dev/null 2>&1 || image=0
          
