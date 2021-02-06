@@ -1,7 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tanzu-advanced
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tanzu-dotnet-core-web-mvc
+  namespace: tanzu-advanced
   labels:
     app: tanzu-dotnet-core-web-mvc
 spec:
@@ -22,6 +28,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tanzu-dotnet-core-web-mvc
+  namespace: tanzu-advanced
   labels:
     app: tanzu-dotnet-core-web-mvc
 spec:
