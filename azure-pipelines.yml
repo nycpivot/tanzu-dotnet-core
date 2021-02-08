@@ -15,6 +15,7 @@ variables:
   #containerRegistry: 'pivotregistry.azurecr.io'
   #dockerfilePath: '$(Build.SourcesDirectory)/src/Tanzu.Dotnet.Core.Web.Mvc/Dockerfile'
   tag: '$(Build.BuildId)'
+  commit: '$(Build.SourceVersion)'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -50,7 +51,8 @@ stages:
 
           kubectl apply -f $(Build.SourcesDirectory)/deploy.yaml
 
-          echo $(Build.SourceVersion)
+          echo $(tag)
+          echo $(commit)
 
           sleep 60
           kubectl get svc -n tanzu-advanced
