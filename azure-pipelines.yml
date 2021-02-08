@@ -14,8 +14,9 @@ variables:
   #imageRepository: 'nycpivottanzudotnetcore'
   #containerRegistry: 'pivotregistry.azurecr.io'
   #dockerfilePath: '$(Build.SourcesDirectory)/src/Tanzu.Dotnet.Core.Web.Mvc/Dockerfile'
-  tag: '$(Build.BuildId)'
+  #tag: '$(Build.BuildId)'
   commit: '$(Build.SourceVersion)'
+  src: '$(Build.SourcesDirectory)'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -44,15 +45,12 @@ stages:
           kp image status tanzu-dotnet-core-web-mvc > /dev/null 2>&1 || image=0
          
           if [[ $image != 0 ]]; then
-            kp image patch tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git -w
+            kp image patch tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git --git-revision $(commit) -w
           else
-            kp image create tanzu-dotnet-core-web-mvc --tag demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git -w
+            kp image create tanzu-dotnet-core-web-mvc --tag demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git --git-revision $(commit) -w
           fi
 
-          kubectl apply -f $(Build.SourcesDirectory)/deploy.yaml
-
-          echo $(tag)
-          echo $(commit)
+          kubectl apply -f $(src)/deploy.yaml
 
           sleep 60
           kubectl get svc -n tanzu-advanced
