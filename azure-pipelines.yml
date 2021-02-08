@@ -46,7 +46,7 @@ stages:
          
           if [[ $image != 0 ]]; then
             kp image patch tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git --git-revision $(commit) -w
-            kubectl replace -f $(src)/deploy.yaml --force
+            #kubectl replace -f $(src)/deploy.yaml --force
             #kubectl set image deployment/tanzu-dotnet-core-web-mvc tanzu-dotnet-core-web-mvc=tanzu-dotnet-core-web-mvc -n tanzu-advanced
           else
             kp image create tanzu-dotnet-core-web-mvc --tag demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc --git https://github.com/nycpivot/tanzu-dotnet-core.git --git-revision $(commit) -w
