@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: tanzu-dotnet-core-web-mvc
-        image: demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc
+        image: demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc:latest
 ---
 apiVersion: v1
 kind: Service
