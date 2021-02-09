@@ -41,7 +41,9 @@ stages:
           
           kp secret delete harbor-secret || true
           kp secret create harbor-secret --registry ${HARBOR_SERVER} --registry-user ${HARBOR_USER}
-                    
+          
+          kp image delete tanzu-dotnet-core-web-mvc
+
           kp image status tanzu-dotnet-core-web-mvc > /dev/null 2>&1 || image=0
          
           if [[ $image != 0 ]]; then
