@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tanzu-dotnet-core-web-mvc
+  namespace: devops
+  labels:
+    app: tanzu-dotnet-core-web-mvc 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tanzu-dotnet-core-web-mvc
+  template:
+    metadata:
+      labels:
+        app: tanzu-dotnet-core-web-mvc 
+    spec:
+      containers:
+        - name: tanzu-dotnet-core-web-mvc 
+          image: pivotregistry.azurecr.io/nycpivottanzudotnetcore:176
+          ports:
+          - containerPort: 80
