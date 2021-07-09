@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tanzu-advanced
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tanzu-dotnet-core-web-mvc
+  namespace: tanzu-advanced
+  labels:
+    app: tanzu-dotnet-core-web-mvc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tanzu-dotnet-core-web-mvc
+  template:
+    metadata:
+      labels:
+        app: tanzu-dotnet-core-web-mvc
+    spec:
+      containers:
+      - name: tanzu-dotnet-core-web-mvc
+        image: demo.goharbor.io/tanzu-advanced/tanzu-dotnet-core-web-mvc:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tanzu-dotnet-core-web-mvc
+  namespace: tanzu-advanced
+  labels:
+    app: tanzu-dotnet-core-web-mvc
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  selector:
+    app: tanzu-dotnet-core-web-mvc
